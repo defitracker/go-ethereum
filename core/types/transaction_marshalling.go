@@ -157,7 +157,7 @@ func (tx *Transaction) UnmarshalJSON(input []byte) error {
 	// Decode / verify fields according to transaction type.
 	var inner TxData
 	switch dec.Type {
-	case LegacyTxType:
+	case LegacyTxType, ArbitrumDepositTxType, ArbitrumUnsignedTxType, ArbitrumContractTxType, ArbitrumRetryTxType, ArbitrumSubmitRetryableTxType, ArbitrumInternalTxType:
 		var itx LegacyTx
 		inner = &itx
 		if dec.Nonce == nil {
